@@ -240,51 +240,94 @@
 /**
  * ScrollView
  */
-import React, { Component } from 'react';
-import{ AppRegistry, ScrollView, Image, Text, View } from 'react-native'
+// import React, { Component } from 'react';
+// import{ AppRegistry, ScrollView, Image, Text, View } from 'react-native'
+//
+// class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
+//     render() {
+//         return(
+//             <ScrollView>
+//                 <Text style={{fontSize:48}}>Scroll me plz</Text>
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Text style={{fontSize:96}}>If you like</Text>
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Text style={{fontSize:96}}>Scrolling down</Text>
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Text style={{fontSize:96}}>What's the best</Text>
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Text style={{fontSize:96}}>Framework around?</Text>
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Image source={require('./img/favicon.jpg')} />
+//                 <Text style={{fontSize:80}}>React Native</Text>
+//             </ScrollView>
+//         );
+//     }
+// }
+//
+// AppRegistry.registerComponent('AwesomeProject', () => IScrolledDownAndWhatHappenedNextShockedMe);
 
-class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
+import React, {Component} from 'react';
+import {AppRegistry, Text, Button, View} from 'react-native';
+import {StackNavigator} from 'react-navigation';
+
+class HomeScreen extends Component {
+    static navigationOptions = {
+        title: 'Welcome',
+    };
+
     render() {
-        return(
-            <ScrollView>
-                <Text style={{fontSize:48}}>Scroll me plz</Text>
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Text style={{fontSize:96}}>If you like</Text>
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Text style={{fontSize:96}}>Scrolling down</Text>
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Text style={{fontSize:96}}>What's the best</Text>
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Text style={{fontSize:96}}>Framework around?</Text>
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Image source={require('./img/favicon.jpg')} />
-                <Text style={{fontSize:80}}>React Native</Text>
-            </ScrollView>
+        const { navigate } = this.props.navigation;
+        return (
+            <View>
+                <Button
+                    onPress={() => navigate('Chat')}
+                    title="Chat with Lucy"/>
+                <Text>Hello, Navigation!</Text>
+            </View>
         );
     }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => IScrolledDownAndWhatHappenedNextShockedMe);
+class ChatScreen extends Component {
+    static navigationOptions = {
+        title: 'Chat with Lucy',
+    };
 
+    render() {
+        return (
+            <View>
+                <Text>Chat with Lucy</Text>
+            </View>
+        );
+    }
+}
+
+
+export const SimpleApp = StackNavigator({
+    Home: {screen: HomeScreen},
+    Chat: {screen: ChatScreen},
+});
+
+AppRegistry.registerComponent('AwesomeProject', () => SimpleApp);
 
 
 
