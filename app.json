@@ -1,11 +1,4 @@
 {
   "name": "AwesomeProject",
   "displayName": "ReactDemo",
-
-  "expo": {
-    "name": "AwesomeProject",
-    "slug": "my-ReactDemo",
-    "sdkVersion": "21.0.0",
-    "privacy": "public"
-  }
 }
